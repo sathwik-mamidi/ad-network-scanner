@@ -1,0 +1,52 @@
+{
+  "name": "ad-network-scanner",
+  "version": "1.0.0",
+  "description": "A TypeScript CLI for scanning ranked domains and recording ad-network request matches from headless Chromium.",
+  "main": "dist/index.js",
+  "type": "module",
+  "bin": {
+    "ad-network-scanner": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "sample-websites.csv",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "check": "tsc --noEmit",
+    "test": "npm run build && node --test test/*.test.js",
+    "smoke": "npm run dev -- --input sample-websites.csv --max-rank 5 --pattern doubleclick.net --output results/sample-matches.csv"
+  },
+  "keywords": [
+    "puppeteer",
+    "ads",
+    "scanner",
+    "domains"
+  ],
+  "author": "Sathwik Mamidi",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sathwik-mamidi/ad-network-scanner.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sathwik-mamidi/ad-network-scanner/issues"
+  },
+  "homepage": "https://github.com/sathwik-mamidi/ad-network-scanner#readme",
+  "dependencies": {
+    "csv-parse": "^7.0.1",
+    "puppeteer": "^25.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.2",
+    "tsx": "^4.23.0",
+    "typescript": "^6.0.3"
+  }
+}
